@@ -42,6 +42,7 @@ export default StyleSheet.create({
     width: null,
   },
   navigation: {
+    flexWrap: "wrap",
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",

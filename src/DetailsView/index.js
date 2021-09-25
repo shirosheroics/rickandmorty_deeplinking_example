@@ -17,7 +17,7 @@ function DetailsView({ route }) {
   }
 
   const {
-    character: { image, name },
+    character: { image, name, status, species, type, gender, origin, location },
   } = data;
 
   let header = `Character: ${name}`;
@@ -27,6 +27,14 @@ function DetailsView({ route }) {
       <View style={{ flex: 1, flexDirection: "column", margin: 1 }}>
         <Image style={styles.imageThumbnail} source={{ uri: image }} />
         <Text style={styles.header}>{header}</Text>
+      </View>
+      <View style={{ flex: 1, flexDirection: "column", margin: 1 }}>
+        <Text style={styles.header}>status: {status} </Text>
+        <Text style={styles.header}>species: {species} </Text>
+        <Text style={styles.header}>type: {type} </Text>
+        <Text style={styles.header}>gender: {gender} </Text>
+        <Text style={styles.header}>origin: {origin.name} </Text>
+        <Text style={styles.header}>location: {location.name} </Text>
       </View>
     </SafeAreaView>
   );
