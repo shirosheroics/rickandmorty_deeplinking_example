@@ -5,7 +5,7 @@ import * as Linking from "expo-linking";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-
+import Loader from "../Loader";
 import DetailsView from "../DetailsView";
 import ListView from "../ListView";
 import { screenOptions } from "../GlobalStyles";
@@ -42,28 +42,31 @@ const client = new ApolloClient({
 function NavigationStack() {
   const linking = {
     prefixes: [prefix],
+    config: {
+      screens: {
+        list: "list",
+        detail: "detail",
+      },
+    },
   };
 
   return (
     <ApolloProvider client={client}>
       <SafeAreaProvider>
-        <NavigationContainer
-          linking={linking}
-          fallback={<Text>Loading...</Text>}
-        >
+        <NavigationContainer linking={linking} fallback={<Loader />}>
           <Stack.Navigator
-            initialRouteName="List"
+            initialRouteName="list"
             screenOptions={screenOptions}
           >
             <Stack.Screen
-              name="List"
+              name="list"
               options={{
                 title: "Characters List",
               }}
               component={ListView}
             />
             <Stack.Screen
-              name="Detail"
+              name="detail"
               options={{
                 title: "Character Details",
               }}
