@@ -38,7 +38,12 @@ export default StyleSheet.create({
   imageThumbnail: {
     justifyContent: "center",
     alignItems: "center",
-    height: 100,
+    height: 150,
     width: null,
+  },
+  navigation: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });

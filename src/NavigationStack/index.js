@@ -14,9 +14,29 @@ const prefix = Linking.createURL("/");
 const Stack = createNativeStackNavigator();
 const cache = new InMemoryCache();
 
+//Couldn't figure out the caching policy in graphql (first time using graphql noob)
+//   {
+//   typePolicies: {
+//     Characters: {
+//       fields: {
+//         results: {
+//           keyArgs: false,
+//           merge(existing = [], incoming) {
+//             console.log("existing", existing);
+//             console.log("incoming", incoming);
+
+//             return [...incoming];
+//           },
+//         },
+//       },
+//     },
+//   },
+// }
+
 const client = new ApolloClient({
   uri: "https://rickandmortyapi.com/graphql",
   cache,
+  defaultOptions: { watchQuery: { fetchPolicy: "cache-and-network" } },
 });
 
 function NavigationStack() {
