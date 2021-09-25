@@ -70,7 +70,7 @@ function ListView({ navigation }) {
         renderItem={({ item }) => (
           <ListItem
             character={item}
-            onPress={() => navigation.navigate("Detail", { character: item })}
+            onPress={() => navigation.navigate("detail", { id: item.id })}
           />
         )}
         numColumns={2}
@@ -78,18 +78,22 @@ function ListView({ navigation }) {
         ListFooterComponent={
           <View>
             <View styles={styles.navigation}>
-              <Button
-                disabled={page - 1 === 0}
-                title="prev page"
-                onPress={prevPage}
-              />
-              <Button
-                disabled={
-                  page + 1 > Math.ceil(data.characters.info.count / limit)
-                }
-                title="next page"
-                onPress={nextPage}
-              />
+              <View style={styles.btnPrev}>
+                <Button
+                  disabled={page - 1 === 0}
+                  title="prev page"
+                  onPress={prevPage}
+                />
+              </View>
+              <View style={styles.btnNext}>
+                <Button
+                  disabled={
+                    page + 1 > Math.ceil(data.characters.info.count / limit)
+                  }
+                  title="next page"
+                  onPress={nextPage}
+                />
+              </View>
             </View>
           </View>
         }

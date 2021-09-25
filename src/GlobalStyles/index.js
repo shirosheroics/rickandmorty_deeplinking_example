@@ -1,10 +1,12 @@
 import { StyleSheet } from "react-native";
 
-export const PINK = "#ff5dc8";
+export const L_GREEN = "#6CBC1C";
+export const L_YELLOW = "#FCD301";
+export const L_BLUE = "#8ED4F5";
 
 export const screenOptions = {
   headerStyle: {
-    backgroundColor: PINK,
+    backgroundColor: L_GREEN,
   },
   headerTintColor: "#fff",
 };
@@ -20,18 +22,20 @@ export default StyleSheet.create({
     paddingBottom: 16,
     paddingLeft: 20,
     paddingRight: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: "#cccccc",
+  },
+  text: {
+    color: "#fff",
   },
   header: {
     fontWeight: "bold",
+    color: "#fff",
   },
   subheader: {
     paddingTop: 10,
   },
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -46,5 +50,19 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  listItem: {
+    flexBasis: "45%",
+    flexDirection: "column",
+    margin: 1,
+    backgroundColor: L_GREEN,
+  },
+  btnNext: {
+    backgroundColor: "#FCD301",
+    borderWidth: 1,
+    borderColor: "#FCD301",
+  },
+  btnPrev: {
+    backgroundColor: "#8ED4F5",
   },
 });

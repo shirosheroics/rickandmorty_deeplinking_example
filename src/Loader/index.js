@@ -1,12 +1,12 @@
 import React from "react";
 import { View, ActivityIndicator } from "react-native";
 
-import styles, { PINK } from "../GlobalStyles";
+import styles, { L_GREEN } from "../GlobalStyles";
 
 export default function Loader() {
   return (
     <View style={styles.centered}>
-      <ActivityIndicator size="large" color={PINK} />
+      <ActivityIndicator size="large" color={L_GREEN} />
     </View>
   );
 }

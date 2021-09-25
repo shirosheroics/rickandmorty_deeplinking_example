@@ -3,13 +3,13 @@ import { Text, View, Image } from "react-native";
 import { useQuery } from "@apollo/client";
 import Loader from "../Loader";
 import { SafeAreaView } from "react-native-safe-area-context";
-import styles from "../GlobalStyles";
+import styles, { L_GREEN } from "../GlobalStyles";
 
 import { DETAIL_QUERY } from "../Queries";
 
 function DetailsView({ route }) {
   const { data, loading } = useQuery(DETAIL_QUERY, {
-    variables: { id: route.params.character.id },
+    variables: { id: route.params.id },
   });
 
   if (loading) {
@@ -24,7 +24,15 @@ function DetailsView({ route }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ flex: 1, flexDirection: "column", margin: 1 }}>
+      <View
+        style={{
+          // flex: 1,
+          flexDirection: "column",
+          padding: 8,
+          margin: 5,
+          backgroundColor: L_GREEN,
+        }}
+      >
         <Image style={styles.imageThumbnail} source={{ uri: image }} />
         <Text style={styles.header}>{header}</Text>
       </View>
