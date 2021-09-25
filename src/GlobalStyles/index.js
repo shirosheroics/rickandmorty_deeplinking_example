@@ -65,4 +65,20 @@ export default StyleSheet.create({
   btnPrev: {
     backgroundColor: "#8ED4F5",
   },
+  rowText: {
+    // backgroundColor: "#8ED4F5",
+    // width: "100%",
+    alignSelf: "flex-start",
+    padding: 10,
+    textAlign: "left",
+    // borderWidth: 1,
+  },
+  row: {
+    backgroundColor: "#8ED4F5",
+    borderWidth: 1,
+
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center",
+  },
 });

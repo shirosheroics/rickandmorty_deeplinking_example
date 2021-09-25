@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, FlatList } from "react-native";
 import { useQuery } from "@apollo/client";
 import Loader from "../Loader";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -17,7 +17,17 @@ function DetailsView({ route }) {
   }
 
   const {
-    character: { image, name, status, species, type, gender, origin, location },
+    character: {
+      image,
+      name,
+      status,
+      species,
+      type,
+      gender,
+      origin,
+      location,
+      episode,
+    },
   } = data;
 
   let header = `Character: ${name}`;
@@ -43,6 +53,31 @@ function DetailsView({ route }) {
         <Text style={styles.header}>gender: {gender} </Text>
         <Text style={styles.header}>origin: {origin.name} </Text>
         <Text style={styles.header}>location: {location.name} </Text>
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: "#fff",
+            alignItems: "center",
+            justifyContent: "center",
+            marginBottom: 25,
+          }}
+        >
+          <FlatList
+            data={episode}
+            renderItem={({ item }) => {
+              console.log(item);
+              return (
+                <View style={styles.row}>
+                  <Text style={styles.rowText}>
+                    Episode Title: {item.name} {"\n"}
+                    Episode No. {item.episode} {"\n"}
+                    Air Date: {item.air_date}
+                  </Text>
+                </View>
+              );
+            }}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );

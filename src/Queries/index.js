@@ -31,6 +31,11 @@ export const DETAIL_QUERY = gql`
       location {
         name
       }
+      episode {
+        name
+        episode
+        air_date
+      }
       image
       created
     }
